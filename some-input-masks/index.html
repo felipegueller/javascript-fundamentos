@@ -5,19 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Máscaras de formulários</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- JS import -->
     <script src="script.js" defer></script>
   </head>
   <body>
-    <label for="">CPF: 000.000.000-00</label>
-    <input type="text" data-js="cpf" />
+    <main id="container">
+      <h1>Máscaras utilizando Vanilla JS</h1>
 
-    <label for="">CNPJ: 00.000.000/0000-00</label>
-    <input type="text" data-js="cnpj" />
+      <form action="">
+        <div class="input-container">
+          <label for-id="cpf">
+            CPF:&nbsp;
+            <span class="mask">000.000.000-00</span>
+          </label>
+          <input type="text" data-js="cpf" id="cpf" />
+        </div>
 
-    <label for="">Telefone: (00) 00000-0000</label>
-    <input type="text" data-js="telefone" />
+        <div class="input-container">
+          <label for-id="cnpj">
+            CNPJ:&nbsp;
+            <span class="mask">00.000.000/0000-00</span>
+          </label>
+          <input type="text" data-js="cnpj" id="cnpj" />
+        </div>
 
-    <label for="">CEP: 00000-000</label>
-    <input type="text" data-js="cep" />
+        <div class="input-container">
+          <label for-id="tel">
+            Telefone:&nbsp;
+            <span class="mask">(00) 0000-0000 | (00) 00000-0000</span>
+          </label>
+          <input type="text" data-js="telefone" id="tel" />
+        </div>
+        <div class="input-container">
+          <label for-id="cep">
+            CEP:&nbsp;
+            <span class="mask">00000-000</span>
+          </label>
+          <input type="text" data-js="cep" id="cep" />
+        </div>
+      </form>
+    </main>
   </body>
 </html>
