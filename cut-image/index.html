@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Crop com HTML5 Canvas e JS</title>
+
+    <!-- Google fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  
+
+    <!-- My CSS and JS files -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/script.js" type="module" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Image Crop</h1>
+        <p>com HTML5 Canvas e JS</p>
+    </header>
+
+    <main>
+      <button id="select-image">
+        <input type="file" id="photo-file">
+        Selecionar Imagem
+      </button>
+
+      <img id="photo-preview" draggable="false">
+
+      <div id="selection-tool"></div>
+    </main>
+
+    <footer></footer>
+</body>
+</html>
