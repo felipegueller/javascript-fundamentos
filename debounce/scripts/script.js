@@ -7,20 +7,19 @@ const filtersUsers = async name => {
 }
 
 const debounceEvent = (fn, wait = 1000, timer) => {
-  return event => {
+  return function () {
     clearTimeout(timer)
+
     timer = setTimeout(() => {
-      fn.apply(this, arguments)
+      fn.apply(this, arguments) // aplicando os argumentos ao contexto da função
     }, wait)
   }
 }
 
 const handleKeyUp = event => {
-  console.log('event: ', event)
-  console.log('handleKeyUp')
-  // filtersUsers(event.target.value).then(users =>
-  //   console.log(users.map(user => user.name))
-  // )
+  filtersUsers(event.target.value).then(users =>
+    console.log(users.map(user => user.name))
+  )
 }
 
 input.onkeyup = debounceEvent(handleKeyUp, 500)
