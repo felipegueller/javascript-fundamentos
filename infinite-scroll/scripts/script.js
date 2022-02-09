@@ -5,7 +5,6 @@ const filterInput = document.querySelector('#filter')
 let page = 1
 
 const getPosts = async () => {
-  console.log('Valor da page: ', page)
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page}`
   )
@@ -16,14 +15,14 @@ const generatePostTemplate = posts =>
   posts
     .map(({ id, title, body }) => {
       return `
-  <div class="post">
-    <div class="number">${id}</div>
-    <div calss="post-info">
-      <h2 class="post-title">${title}</h2>
-      <p class="post-body">${body}</p>
-    </div>
-  </div>
-`
+        <div class="post">
+          <div class="number">${id}</div>
+          <div calss="post-info">
+            <h2 class="post-title">${title}</h2>
+            <p class="post-body">${body}</p>
+          </div>
+        </div>
+        `
     })
     .join('')
 
@@ -38,7 +37,7 @@ const getNextPosts = () => {
   setTimeout(() => {
     page++
     addPostsIntoDOM()
-  }, 300)
+  }, 300) // 300 ms because of animation dalay
 }
 
 const removeLoader = () => {
