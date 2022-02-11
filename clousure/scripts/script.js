@@ -1,5 +1,3 @@
-// parei no minuto 11:00
-
 /* lexical scope is the scope when the function have access to parent's scope, but the parent does not have access to it's scope. */
 
 const lexical = 'Oi lexical'
