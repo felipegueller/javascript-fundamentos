@@ -4,10 +4,7 @@ const nameList = ['carlos', 'Felipe', 'Lucia', 'Ana', 'Sara', 'Junio', 'Fred']
 
 // adding new data
 serverData.forEach(dataServer => {
-  let boolean = false
-  nameList.forEach(itemAtual => {
-    if (itemAtual === dataServer) boolean = true
-  })
+  const boolean = nameList.some(itemAtual => itemAtual === dataServer)
   if (!boolean) nameList.push(dataServer)
 })
 
