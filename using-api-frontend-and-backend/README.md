@@ -4,12 +4,12 @@
 Criar um api
 
 - [x] Iniciar o projeto `npm init -y`
-  -> *Cria um projeto dentro da pasta.* 
+    -> *Cria um projeto dentro da pasta.* 
 - [x] Instalar as dependências `npm i express nodemon cors axios`
-   -> ***express** - framework node para criar a API.*
-   -> ***nodemon* - realiza o reload automático do server.**
-   -> ***cors* - permite o acesso do frontend para API.**
-   -> ***axios* - requisições http/ajax.**
+    &nbsp;-> ***express** - framework node para criar a API.* 
+    &nbsp;-> ***nodemon* - realiza o reload automático do server.**
+    &nbsp;-> ***cors* - permite o acesso do frontend para API.**
+    &nbsp;-> ***axios* - requisições http/ajax.**
 - [x] Criar uma rota para acessar a API.
 - [] Servir a API.
 - [] Habilitar o CORS.
