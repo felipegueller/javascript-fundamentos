@@ -11,24 +11,28 @@ Criar um api
     <br/>-> ***cors* - permite o acesso do frontend para API.**
     <br/>-> ***axios* - requisições http/ajax.**
 - [x] Criar uma rota para acessar a API.
-- [] Servir a API.
-- [] Habilitar o CORS.
-- [] Habilitar o nodemon para reiniciar o server.
+- [x] Servir a API.
+- [x] Habilitar o CORS.
+- [x] Habilitar o nodemon para reiniciar o server.
 
 ##  frontend
 Consumir API
 
-- [] Utilizar o fetch para consumir a nossa API backend.
-- [] Explicar Promise - Async/await.
-- [] Usar try/catch.
-- [] Mostrar resposta na tela.
+- [x] Utilizar o fetch para consumir a nossa API backend.
+- [x] Explicar Promise - Async/await.
+- [x] Usar try/catch.
+    <br/>-> *Boas práticas para validar se o código funcionou corretamente!*
+- [x] Mostrar resposta na tela.
 
 ## backend
 Consumir API
 
-- [] jsonplaceholder.
-- [] Usar axios.
-- [] Semelhanças entre axios e fetch.
+- [x] jsonplaceholder `https://jsonplaceholder.typicode.com/users`.
+    <br/>-> *API com dados grátis e fakes disponibilizada para realização de testes.*
+- [x] Usar axios.
+- [x] Semelhanças entre axios e fetch.
+    <br/>-> ***Fetch -* API do navegador que realiza as requisições http/ajax**
+    <br/>-> ***Axios -* Biblioteca utilizada também no backend, onde não existe a API fetch para realizar as requisições http/ajax**
 - [] Usar try/catch.
-- [] 
+    <br/>-> *Boas práticas para validar se o código funcionou corretamente!* 
   
