@@ -21,6 +21,4 @@ const insertUserInList = async () => {
   usersList.innerHTML = lis
 }
 
-insertUserInList()
-
-window.addEventListener('DOMContentLoaded', getUsers)
+window.addEventListener('DOMContentLoaded', insertUserInList())
