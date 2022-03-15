@@ -17,7 +17,7 @@ let users = [
   }
 ]
 
-app.route('/app').get((req, res) => {
+app.route('/api').get((req, res) => {
   return users.length > -1
     ? res.json(users)
     : res.json('The user list is empty!')
@@ -54,9 +54,9 @@ app.route('/api/:id').put((req, res) => {
 
   const updatedUser = {
     ...user,
-    name: req.body['name'],
-    avatar: req.body['avatar'],
-    city: req.body['city']
+    name: req.body['name'] ? req.body['name'] : user.name,
+    avatar: req.body['avatar'] ? req.body['avatar'] : user.avatar,
+    city: req.body['city'] ? req.body['city'] : user.city
   }
 
   // updating the array by user position (alternative option)
@@ -71,14 +71,16 @@ app.route('/api/:id').delete((req, res) => {
 
   if (!userId) return res.json("User id isn't found!")
 
-  const user = users.filter(({ id }) => Number(id) === Number(userId))
+  const user = users.filter(({ id }, index) => {
+    if (Number(id) === Number(userId)) return index
+  })
 
-  if (user) res.json('User not found!')
+  if (!user) return res.json('User not found!')
 
-  const userIndex = users.indexOf(user)
+  const userIndex = users.indexOf(user[0])
 
   if (userIndex > -1) {
     users.splice(userIndex, 1)
-    res.json('User deleted!')
+    return res.json('User deleted!')
   }
 })
