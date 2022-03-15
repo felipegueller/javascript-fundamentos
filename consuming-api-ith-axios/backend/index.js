@@ -59,3 +59,20 @@ app.route('/api/:id').put((req, res) => {
 
   return res.json('User updated!')
 })
+
+app.route('/api/:id').delete((req, res) => {
+  const userId = req.params['id']
+
+  if (!userId) return res.json("User id isn't found!")
+
+  const user = users.filter(({ id }) => Number(id) === Number(userId))
+
+  if (user) res.json('User not found!')
+
+  const userIndex = users.indexOf(user)
+
+  if (userIndex > -1) {
+    users.splice(userIndex, 1)
+    res.json('User deleted!')
+  }
+})
