@@ -17,6 +17,12 @@ let users = [
   }
 ]
 
+app.route('/app').get((req, res) => {
+  return users.length > -1
+    ? res.json(users)
+    : res.json('The user list is empty!')
+})
+
 app.route('/api/:id').get((req, res) => {
   const userId = req.params.id
   console.log(`Id do usuário: ${userId}`)
