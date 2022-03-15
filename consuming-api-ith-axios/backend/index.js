@@ -38,3 +38,24 @@ app.route('/api').post((req, res) => {
 
   res.json('User saved!')
 })
+
+app.route('/api/:id').put((req, res) => {
+  const userId = req.params.id
+
+  const user = users.find(user => Number(user.id) === Number(userId))
+
+  if (!user) return res.json('User not found!')
+
+  const updatedUser = {
+    ...user,
+    name: req.body['name'],
+    avatar: req.body['avatar'],
+    city: req.body['city']
+  }
+
+  // updating the array by user position (alternative option)
+  const userIndex = users.indexOf(user)
+  users[userIndex] = updatedUser
+
+  return res.json('User updated!')
+})
