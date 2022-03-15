@@ -25,3 +25,16 @@ app.route('/api/:id').get((req, res) => {
 
   return !user ? res.json('User not found!') : res.json(user)
 })
+
+app.route('/api').post((req, res) => {
+  const lastId = users[users.length - 1]['id']
+
+  users.push({
+    id: lastId + 1,
+    name: req.body.name,
+    avatar: req.body.avatar,
+    city: req.body.city
+  })
+
+  res.json('User saved!')
+})
