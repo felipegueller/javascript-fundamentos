@@ -25,7 +25,6 @@ app.route('/api').get((req, res) => {
 
 app.route('/api/:id').get((req, res) => {
   const userId = req.params.id
-  console.log(`Id do usuário: ${userId}`)
 
   const user = users.find(user => Number(user.id) === Number(userId))
 
@@ -52,12 +51,17 @@ app.route('/api/:id').put((req, res) => {
 
   if (!user) return res.json('User not found!')
 
-  const updatedUser = {
-    ...user,
-    name: req.body['name'] ? req.body['name'] : user.name,
-    avatar: req.body['avatar'] ? req.body['avatar'] : user.avatar,
-    city: req.body['city'] ? req.body['city'] : user.city
+  const updatedUser = user
+  for (let key in req.body) {
+    updatedUser[key] = req.body[key]
   }
+
+  // const updatedUser = {
+  //   ...user,
+  //   name: req.body['name'] ? req.body['name'] : user.name,
+  //   avatar: req.body['avatar'] ? req.body['avatar'] : user.avatar,
+  //   city: req.body['city'] ? req.body['city'] : user.city
+  // }
 
   // updating the array by user position (alternative option)
   const userIndex = users.indexOf(user)
