@@ -53,7 +53,7 @@ app.route('/api/:id').put((req, res) => {
 
   const updatedUser = user
   for (let key in req.body) {
-    updatedUser[key] = req.body[key]
+    if (updatedUser[key]) updatedUser[key] = req.body[key]
   }
 
   // const updatedUser = {
