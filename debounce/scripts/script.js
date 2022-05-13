@@ -1,25 +1,26 @@
-const input = document.querySelector('input')
+const input = document.querySelector('input[data-js="search"]')
 
-const filtersUsers = async name => {
-  return fetch(
-    `https://jsonplaceholder.typicode.com/users?name_like=${name}`
-  ).then(data => data.json())
-}
+const getFilteredUsers = async name =>
+  fetch(`https://jsonplaceholder.typicode.com/users?name_like=${name}`).then(
+    data => data.json()
+  )
 
-const debounceEvent = (fn, wait = 1000, timer) => {
+function debounce (fn, wait = 1000, timer) {
   return function () {
     clearTimeout(timer)
 
     timer = setTimeout(() => {
-      fn.apply(this, arguments) // aplicando os argumentos ao contexto da função
+      fn.apply(this, arguments)
     }, wait)
   }
 }
 
-const handleKeyUp = event => {
-  filtersUsers(event.target.value).then(users =>
-    console.log(users.map(user => user.name))
-  )
+async function handleKeyup(event) {
+  const users = await getFilteredUsers(event.target.value)
+  const UsersNamesList = users.reduce((acc, { name }) => {
+    return `${acc}- ${name}\n`
+  }, '')
+  console.log(UsersNamesList)
 }
 
-input.onkeyup = debounceEvent(handleKeyUp, 500)
+input.addEventListener('keyup', debounce(handleKeyup, 500))
