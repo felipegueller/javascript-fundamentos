@@ -7,7 +7,7 @@ const keys = ['propA', 'propB']
 const getDinamicAccess = (obj, keys) => {
   let dinamicValue = obj
 
-  keys.forEach(key => dinamicValue += [key])
+  keys.forEach(key => dinamicValue =  dinamicValue[key])
 
   return dinamicValue
 }
