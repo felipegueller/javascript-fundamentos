@@ -25,7 +25,7 @@ console.log(`O valor obtido foi: ${result}`)
 console.log('Objeto: ', obj)
 
 
-// 1º teste
+// 2º teste
 const keys2 = ['chave1', 'chave2', 'chave3']
 const result2 = getDinamicAccess(obj, keys2)
 
