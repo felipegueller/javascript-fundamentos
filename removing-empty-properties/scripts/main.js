@@ -28,16 +28,33 @@ const filtersArr = [
     waypoints: ['Santa Catarina', 'Rio de Janeiro']
   }
 ]
+
+const isATruthyObject = obj => {
+  return !obj || (obj && typeof obj !== 'object')
+    ? false
+    : Array.isArray(obj)
+    ? Boolean(obj.length)
+    : Boolean(Object.getOwnPropertyNames(obj).length)
+}
+
 const removingEmptyKeys = (filters, filtersOrder) => {
   const obj = { ...filters }
 
-  return filtersOrder.reduce((acc, key) => {
-    console.log(`Chave: ${key} - Valor: ${obj[key]}`)
-    console.log('accumulator: ', acc)
-    return obj[key] ? (acc[key] = obj[key]) : acc
+  return filtersOrder.reduce((acc, key, index) => {
+    const currentValue = obj[key]
+    const typeofValue = typeof currentValue
+
+    if ((typeofValue === 'object' && !isATruthyObject(currentValue)) || !currentValue)
+      return acc
+
+    acc[key] = currentValue
+
+    return acc
   }, {})
 }
 
-const validatedFilters = filtersArr.map(item => removingEmptyKeys(item, filtersOrder))
+const validatedFilters = filtersArr.map(item =>
+  removingEmptyKeys(item, filtersOrder)
+)
 
 console.log('Filtros válidado: ', validatedFilters)
