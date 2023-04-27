@@ -17,6 +17,7 @@ const getDinamicAccess = (obj, keys) => {
 }
 
 // 1º teste
+
 const keys = ['propA', 'propB']
 const result = getDinamicAccess(obj, keys)
 
