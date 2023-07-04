@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #cf6339;
+  display: grid;
+  place-content: center;
+}
+
+
+
+form {
+  margin: 0 20px;;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #fff;
+  justify-items: center;
+  gap: 20px;
+  border-radius: 10px;
+
+}
+
+label {
+  font-size: 20px;
+}
+
+.select-box {
+  width: 100%;
+  position: relative;
+}
+
+.select-box input {
+  margin-bottom: 1px;
+  padding: 7px 40px 8px 9px;
+  width: 100%;
+  min-height: 39px;
+  display: block;
+  background: rgba(0,0,0,0);
+  border: 1px solid #e7e7e7;
+  color: #333;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.select-box ul {
+  margin: 0;
+  padding: 1px;
+  width: 100%;
+  max-height: 200px;
+  overflow: auto;
+  list-style: none;
+  border-radius: 4px;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.select-box.active ul {
+  display: block;
+}
+
+.select-box li {
+  padding: 7px 9px;
+}
+
+.select-box li:hover {
+  background-color: rgba(0,0,0,.04);
+  color: #333;
+  cursor: pointer;
+}
+.select-box li.selected {
+  background-color: rgba(0,0,0,.1);
+  color: #333;
+}
+
+button {
+  padding: 4px 8px;
+  background-color: #1c5d99;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0a3156;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 576px) {
+  button {
+    padding: 8px 16px;
+  }
+}
