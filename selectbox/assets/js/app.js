@@ -1,5 +1,4 @@
 const form = document.querySelector('[data-js="games-form"]')
-console.log(form)
 const selectbox = document.querySelector('.select-box')
 const input = document.querySelector('.select-box input')
 const selectList = selectbox.querySelector('ul')
@@ -59,11 +58,6 @@ const marcarLISelecionada = (itemDeLista) => {
   return itemDeLista.classList.add("selected")
 }
 
-const previnirComportamentoPadraoDaLista = event => {
-  event.preventDefault()
-  event.stopPropagation()
-}
-
 const preencherInputDeSelecao = event => {
   event.stopPropagation()
   const game = event.target
@@ -74,13 +68,10 @@ const preencherInputDeSelecao = event => {
 
   input.value = game.textContent;
   input.dataset.id = game.dataset.id
-
-  input.dispatchEvent(new Event("blur"))
 }
 
 input.addEventListener('focus', alternarselectList)
 input.addEventListener('blur', alternarselectList)
-selectList.addEventListener('mousedown', previnirComportamentoPadraoDaLista)
-selectList.addEventListener('click', preencherInputDeSelecao)
+selectList.addEventListener('mousedown', preencherInputDeSelecao)
 form.addEventListener('submit', selecionarJogo)
 window.addEventListener("DOMContentLoaded", popularSelectDeJogos)
